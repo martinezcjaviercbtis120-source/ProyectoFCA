@@ -8,7 +8,7 @@
             <span>"Luz, Ciencia y Verdad"</span>
         </a>
 
-        <!-- Apartado de buscador en el navbar -->
+        <!-- Apartado de buscador en el navbar sacado de la pagina getbootstrap -->
         <form class="d-flex mx-auto" style="width:350px;">
             <input class="form-control rounded-0" type="search" placeholder="Buscar">
             <button class="btn btn-outline-secondary rounded-0">
