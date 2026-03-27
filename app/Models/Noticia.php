@@ -1,30 +1,21 @@
 <?php
-
+//Modelo de la noticia, con sus respectivos campos y funciones para obtener el listado de noticias y buscar por id
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Noticia extends Model
 {
-    //
+   use HasFactory;
 
+     //Nuetra tabla de la base de datos
     protected $table = 'noticias';
-    
-    protected function casts(): array{
-    return [
-        'created_at' => 'datetime',
-        'is_Active' => 'boolean'
+
+ //Datos que tenemos dentro de nuestra base de datos
+    protected $fillable = [
+        'titulo',      
+        'imagen',      
+        'descripcion', 
     ];
-}
-
-
-    public function ObtenerListado(){
-        $listadousuarios=Noticia::all();
-        return $listadousuarios;
-    }
-
-    public function BuscarId($id){
-        $registro=Noticia::find($id);
-        return $registro;
-    }
 }

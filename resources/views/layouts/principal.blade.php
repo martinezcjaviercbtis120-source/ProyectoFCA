@@ -12,14 +12,9 @@
     <!-- HEADER -->
     @include('components.header')
 
-    <!-- Carousel -->
-    @include('components.carruselinicio')
-
-    <!-- Contenido de Noticias -->
-    @include('components.cardnoticias')
-
-    <!-- Contenido de Eventos -->
-    @include('components.cardeventos')
+    <main>
+        @yield('content')
+    </main>
 
     <!-- Footer -->
     @include('components.footer')

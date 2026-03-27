@@ -1,35 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Evento;
 use Illuminate\Http\Request;
 use App\Models\Noticia;
 
 class NoticiasController extends Controller
-{
-    /**
-     * Controlador de mis noticias
-     */
+    {
+       //Controladores de noticias y eventos
 
-    public function inicio(){
-    $noticias["titulo"]="Noticias FCA";
-    $noticias["imagen"]="logo.png";
-    $noticias["descripcion"]="Descripción de la noticia";
-    
-    $noticia=new Noticia();
-    $noticias["listadenoticias"]=$noticia->ObtenerListado();
-    return view('principal', $noticias);
-}
+    public function index() {
+        // Jalamos todas las noticias de la DB usando el Modelo
+        $noticias = Noticia::all();
+        $eventos = Evento::all();
 
-    public function update(Request $request) {
-    $noticias=new Noticia();
-    $respuesta=$noticias->BuscarId($request->id);
-    if(!empty($respuesta)){
-        $respuesta->titulo=$request->titulo;
-        $respuesta->descripcion=$request->descripcion;
-        $respuesta->save();
+        // Enviamos la variable 'noticias y eventos' a la vista principal
+        return view('principal', compact('noticias', 'eventos'));
     }
-    return $respuesta;
-   }
 
 }
