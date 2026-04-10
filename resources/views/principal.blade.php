@@ -5,7 +5,7 @@
 @section('content') 
 
 <!-- Carrusel de mi inicio -->
-    <section class="container-fluid my-5">
+    <section class="container-fluid my-0 p-0">
         <x-carruselinicio/>
     </section>
 

@@ -1,101 +1,66 @@
-<!-- Diseño de Navbar del inicio -->
-<nav class="navbar navbar-expand-lg border-bottom" style="background:#ffffff;">
-    <div class="container-fluid">
+<div class="sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg border-bottom py-2" style="background:#ffffff;">
+        <div class="container-fluid px-lg-5"> <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="{{ asset('Imagenes/Principal/Logo.png') }}" width="160" class="me-2">
+                <span class="fw-bold lh-1" style="color: #0b3a63; font-size: 1.1rem;">
+                    <span class="d-none d-xl-inline">"Luz, Ciencia y Verdad"</span>
+                </span>
+            </a>
 
-        <!-- Apartados del navbar/Logo y Slogan de la Factuldad -->
-        <a class="navbar-brand fw-bold text-primary d-flex align-items-center" href="/">
-            <img src="{{ asset('Imagenes/Principal/Logo.png') }}" width="180" class="me-2">
-            <span>"Luz, Ciencia y Verdad"</span>
-        </a>
+            <form class="d-flex ms-lg-5 me-lg-5 flex-grow-1" style="max-width: 600px;">
+                <div class="input-group">
+                    <input class="form-control rounded-0" type="search" placeholder="¿Qué estás buscando hoy?">
+                    <button class="btn btn-outline-secondary rounded-0" type="submit">🔍</button>
+                </div>
+            </form>
 
-        <!-- Apartado de buscador en el navbar sacado de la pagina getbootstrap -->
-        <form class="d-flex mx-auto" style="width:350px;">
-            <input class="form-control rounded-0" type="search" placeholder="Buscar">
-            <button class="btn btn-outline-secondary rounded-0">
-                🔍
-            </button>
-        </form>
-
-        <!-- Apartado de enlaces en Navbar -->
-        <ul class="navbar-nav ms-auto flex-row gap-4">
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="/">Servicios en línea</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="/">Correo</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="/">Calendario</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link text-dark" href="/">Personal</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<!-- NavBar Secundario -->
-<nav class="navbar navbar-expand-lg p-0">
-
-    <!-- Primera mitad de navbar (Color oro) -->
-    <div class="w-100" style="background:#c69214;">
-        <div class="container">
-            <ul class="navbar-nav justify-content-center w-100 text-center">
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-dark fw-semibold" href="/">Inicio</a>
+            <ul class="navbar-nav flex-row gap-4"> <li class="nav-item">
+                    <a class="nav-link text-dark small border-bottom border-secondary p-0" href="#">Servicios en línea</a>
                 </li>
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-dark fw-semibold" href="/">Aspirantes</a>
+                <li class="nav-item">
+                    <a class="nav-link text-dark small border-bottom border-secondary p-0" href="#">Correo</a>
                 </li>
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-dark fw-semibold" href="/">Estudiantes</a>
+                <li class="nav-item">
+                    <a class="nav-link text-dark small border-bottom border-secondary p-0" href="#">Calendario</a>
                 </li>
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-dark fw-semibold" href="/">Docentes</a>
-                </li>
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-dark fw-semibold" href="/">Egresados</a>
-                </li>
-
             </ul>
         </div>
-    </div>
+    </nav>
 
-    <!-- Segunda mitad de navbar (Color azul) -->
-    <div class="w-100" style="background:#0b3a63;">
-        <div class="container">
-            <ul class="navbar-nav justify-content-center w-100 text-center">
+    <div class="container-fluid p-0">
+        <div class="row g-0 w-100 text-center align-items-center">
+            <div class="col-3 py-2" style="background:#c69214;">
+                <div class="dropdown">
+                    <a class="nav-link dropdown-toggle text-dark fw-bold px-0" href="#" id="dropComunidad" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Comunidad
+                    </a>
+                    <ul class="dropdown-menu shadow border-0 py-0 overflow-hidden" aria-labelledby="dropComunidad">
+                        <li><a class="dropdown-item py-2 border-bottom" href="/comunidad">Aspirantes</a></li>
+                        <li><a class="dropdown-item py-2 border-bottom" href="/comunidad">Estudiantes</a></li>
+                        <li><a class="dropdown-item py-2 border-bottom" href="/comunidad">Docentes</a></li>
+                        <li><a class="dropdown-item py-2" href="/comunidad">Egresados</a></li>
+                    </ul>
+                </div>
+            </div>
 
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-white fw-semibold" href="/">Nuestra Facultad</a>
-                </li>
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-white fw-semibold" href="/">Oferta Educativa</a>
-                </li>
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-white fw-semibold" href="/">Investigación</a>
-                </li>
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-white fw-semibold" href="/">Vinculación</a>
-                </li>
-
-                <li class="nav-item flex-fill">
-                    <a class="nav-link text-white fw-semibold" href="/">Internacionalización</a>
-                </li>
-
-            </ul>
+            <div class="col-9 d-flex p-0" style="background:#0b3a63;">
+                <div class="col-8 py-2 border-end border-white border-opacity-10">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle text-white fw-bold px-0" href="#" id="dropProgramas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Programas y Desarrollo
+                        </a>
+                        <ul class="dropdown-menu shadow border-0 py-0 overflow-hidden" aria-labelledby="dropProgramas">
+                            <li><a class="dropdown-item py-2 border-bottom" href="#">Oferta Educativa</a></li>
+                            <li><a class="dropdown-item py-2 border-bottom" href="#">Investigación</a></li>
+                            <li><a class="dropdown-item py-2 border-bottom" href="#">Vinculación</a></li>
+                            <li><a class="dropdown-item py-2" href="#">Internacionalización</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-4 py-2">
+                    <a class="nav-link text-white fw-bold px-0" href="#">Personal</a>
+                </div>
+            </div>
         </div>
     </div>
-
-</nav>
+</div>

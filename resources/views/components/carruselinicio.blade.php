@@ -1,12 +1,14 @@
 <!-- Ajuste de las imagenes -->
 <style>
+    .container-fluid.p-0 {
+        margin-top:0; 
+    }
+
     .carousel-img {
         height: 500px;
         object-fit: cover;
-
-        height: 500px;
-        object-fit: cover;
         filter: brightness(0.7);
+        width: 100%;
     }
 
     .carousel-caption {
@@ -17,6 +19,7 @@
 </style>
 
 <!-- Carrusel -->
+<section class="container-fluid p-0 m-0">
 <div id="carouselExampleCaptions" class="carousel slide">
 
     <!-- Indicadores -->

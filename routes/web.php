@@ -3,13 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\NoticiasController;
+use App\Http\Controllers\ComunidadController;
 use App\Models\Noticia;
 use App\Models\Evento;
+use App\Models\Alumno;
 use Symfony\Contracts\EventDispatcher\Event;
 
 // Pagina principal de la FCA con las noticias
 Route::get('/', [PrincipalController::class, 'inicio']);
 Route::get('/', [NoticiasController::class, 'index']);
+
+// Pagina que me va a redirigir a la comunidad de la FCA
+Route::get('/comunidad', [ComunidadController::class, 'Comunidad']);
 
 
 //Metodo que nos ayuda a crear una nueva noticia
