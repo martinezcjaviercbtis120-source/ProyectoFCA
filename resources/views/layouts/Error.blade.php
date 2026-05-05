@@ -11,7 +11,7 @@
 
     <!-- HEADER -->
     @include('components.header')
-    <!-- CONTENIDO -->
+
 
     <!-- Footer -->
     @include('components.footer')

@@ -11,21 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('eventos', function (Blueprint $table) {
-            $table->id(); // Identificador único
-            $table->string('titulo'); // Titulo del evento
-            $table->text('descripcion'); // Descripción del evento
-            $table->text('evento'); // Detalles del evento
+        Schema::create('ofertaeducativa', function (Blueprint $table) {
+            $table->id();
+            $table->string('licenciatura'); // Nombre del alumno
+            $table->string('descripcion'); // Apellido del alumno
             $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('eventos');
+        Schema::dropIfExists('ofertaeducativa');
     }
 };
