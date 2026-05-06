@@ -5,17 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Evento extends Model
+class Egresado extends Model
 {
-    use HasFactory;
-
+     use HasFactory;
+    
     //Nuetra tabla de la base de datos
-    protected $table = 'eventos';
+    protected $table = 'egresados';
 
     //Datos que tenemos dentro de nuestra base de datos
     protected $fillable = [
-        'titulo',         
-        'descripcion', 
-        'evento',
+        'nombre',
+        'apellido',
+        'email',
+        'telefono',
+        'carrera'
     ];
+
 }
