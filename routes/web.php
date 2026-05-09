@@ -26,6 +26,14 @@ Route::get('/docentes', [DocenteController::class, 'Docentes']);
 // Pagina que me va a redirigir a la pestaña de egresados
 Route::get('/egresados', [EgresadoController::class, 'Egresados']);
 
+// Pagina que me va a redirigir a la pestaña de servicios
+Route::view('/servicios', 'servicios')->name('servicios');
+
+// Pagina que me va a redirigir a la pestaña de contacto
+Route::view('/contacto', 'contacto')->name('contacto');
+
+
+
 //Metodo que nos ayuda a crear una nueva noticia
  Route::get('nuevanoticia', function(){ 
     $Noticia = new Noticia;
