@@ -10,7 +10,7 @@
             </a>
 
             <!-- Nuestro buscador sacado de la pagina de getbootstrap.com-->
-            <form action="{{url('/construccion')}}" class="d-flex ms-lg-5 me-lg-5 flex-grow-1"
+            <form action="{{ url('/construccion') }}" class="d-flex ms-lg-5 me-lg-5 flex-grow-1"
                 style="max-width: 600px;">
                 <div class="input-group">
                     <input type="search" class="form-control rounded-0" placeholder="¿Qué estás buscando hoy?">
@@ -27,12 +27,19 @@
             <ul class="navbar-nav flex-row gap-4">
                 <li class="nav-item">
                     <a class="nav-link text-dark small border-bottom border-secondary p-0"
-                        href="/construccion">Servicios en
+                        href="{{ route('servicios') }}">Servicios en
                         línea</a>
                 </li>
+
                 <li class="nav-item">
+
                     <a class="nav-link text-dark small border-bottom border-secondary p-0"
-                        href="/construccion">Contacto</a>
+                        href="{{ route('contacto') }}">
+
+                        Contacto
+
+                    </a>
+
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark small border-bottom border-secondary p-0"
