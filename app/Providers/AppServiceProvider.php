@@ -20,6 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        //Agregamos [Illuminate\pagination\] arriba para usar el paginador de Bootstrap.
         Paginator::useBootstrap();
         //
     }

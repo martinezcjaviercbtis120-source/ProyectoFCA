@@ -6,11 +6,15 @@ use App\Http\Controllers\NoticiasController;
 use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\EgresadoController;
+use App\Http\Controllers\CalendarioController;
+use App\Http\Controllers\OfertaController;
 use App\Models\Noticia;
 use App\Models\Evento;
 use App\Models\Alumno;
 use App\Models\Docente;
 use App\Models\Egresado;
+use App\Models\Calendario;
+use App\Models\Oferta;
 use Symfony\Contracts\EventDispatcher\Event;
 
 // Pagina principal de la FCA con las noticias
@@ -26,13 +30,32 @@ Route::get('/docentes', [DocenteController::class, 'Docentes']);
 // Pagina que me va a redirigir a la pestaña de egresados
 Route::get('/egresados', [EgresadoController::class, 'Egresados']);
 
+ // Pagina que me va a redirigir a la pestaña de oferta educativa
+Route::get('/oferta-educativa', [OfertaController::class, 'oferta']);
+
+Route::get('/calendario', [CalendarioController::class, 'calendario']);
+
 // Pagina que me va a redirigir a la pestaña de servicios
 Route::view('/servicios', 'servicios')->name('servicios');
 
 // Pagina que me va a redirigir a la pestaña de contacto
 Route::view('/contacto', 'contacto')->name('contacto');
 
+Route::get('/calendario', [CalendarioController::class, 'calendario']);
 
+// Pagina que me va a redirigir a la pestaña de estudiantes
+Route::get('/estudiantes', function () {
+    return view('estudiantes');
+});
+
+//Pagina que nos va a redirigir a la pestaña de construccion
+Route::get('/construccion', function () {
+    return view('construccion');
+});
+
+Route::get('/personal', function () {
+    return view('personal');
+});
 
 //Metodo que nos ayuda a crear una nueva noticia
  Route::get('nuevanoticia', function(){ 
@@ -53,17 +76,22 @@ Route::view('/contacto', 'contacto')->name('contacto');
     return $Evento;
  });
 
- // Pagina que me va a redirigir a la pestaña de oferta educativa
-  Route::get('/oferta-educativa', function () {
-    return view('oferta-educativa');
-});
+  //Metodo que nos ayuda a crear un nuevo evento en nuestro calendario
+  Route::get('nuevencal', function(){ 
+    $Calendario = new Calendario;
+    $Calendario->evento = "Regional I Voleilbol Femenil I ANUIES";
+    $Calendario->save();
+    return $Calendario;
+ });
 
- // Pagina que me va a redirigir a la pestaña de estudiantes
-  Route::get('/estudiantes', function () {
-    return view('estudiantes');
-});
-
-//Pagina que nos va a redirigir a la pestaña de construccion
-Route::get('/construccion', function () {
-    return view('construccion');
-});
+  //Metodo que nos ayuda a completar la informacion de una licenciatura en la oferta educativa
+  Route::get('nuevofer', function(){ 
+    $oferta = new Oferta;
+    $oferta->licenciatura = "Licenciatura en Administración";
+    $oferta->descripcion_de_la_licenciatura = "Forma líderes capaces de dirigir organizaciones, gestionar recursos y mejorar la competitividad.";
+    $oferta->coordinadores = "Mtra. Sofía Ramírez";
+    $oferta->areacord = "Coordinadora de Administración";
+    $oferta->correo = "sofia.ramirez@inventado.mx";
+    $oferta->save();
+    return $oferta;
+ });

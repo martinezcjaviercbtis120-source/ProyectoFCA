@@ -12,7 +12,7 @@
         <!-- Imagen -->
         <div class="col-lg-12 col-md-12 col-12 mb-4 d-flex">
             <div class="card flex-grow-1 shadow-sm border-0 bg-white">
-                <img src="{{ asset('/Imagenes/Principal/padrino1.jpg') }}" class="card-img-top img-fluid w-100" alt="CordEgre"
+                <img src="{{asset('/Imagenes/Principal/padrino1.jpg')}}" class="card-img-top img-fluid w-100" alt="CordEgre"
                     style="object-fit: cover; height: 350px; border-radius: 0;">
             </div>
         </div>
@@ -30,7 +30,7 @@
             huella significativa en la vida y el futuro profesional de los estudiantes.</p>
 
         <div class="card mx-auto" style="width: 20rem;">
-            <img class="card-img-top" src="{{ asset('Imagenes/Principal/fulanita.png') }}" alt="Card image cap">
+            <img class="card-img-top" src="{{asset('Imagenes/Principal/fulanita.png')}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Contacto para pardino academico</h5>
                 <p class="card-text">Dra. Fulanita Fulana</p>

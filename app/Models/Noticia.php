@@ -12,7 +12,7 @@ class Noticia extends Model
      //Nuetra tabla de la base de datos
     protected $table = 'noticias';
 
- //Datos que tenemos dentro de nuestra base de datos
+ //Datos que tenemos dentro de nuestra base de datos que se pueden llenar de forma masiva
     protected $fillable = [
         'titulo',      
         'imagen',      

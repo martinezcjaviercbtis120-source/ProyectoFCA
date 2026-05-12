@@ -12,7 +12,7 @@ class Docente extends Model
     //Nuetra tabla de la base de datos
     protected $table = 'docentes';
 
-    //Datos que tenemos dentro de nuestra base de datos
+    //Datos que tenemos dentro de nuestra base de datos que se pueden llenar de forma masiva
     protected $fillable = [
         'nombre',
         'apellido',

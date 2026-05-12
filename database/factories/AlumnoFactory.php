@@ -19,6 +19,7 @@ class AlumnoFactory extends Factory
     protected $model = Alumno::class;
     public function definition(): array
     {
+        //Definimos los datos que se van a llenar de forma masiva en nuestra bd, usando el faker para generar datos aleatorios.
         return [
             'nombre'=>$this->faker->name(),
             'apellido'=>$this->faker->lastName(),

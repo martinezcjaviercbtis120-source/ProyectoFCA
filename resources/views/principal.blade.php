@@ -19,7 +19,7 @@
                 </p>
             </div>
             <div class="col-lg-6">
-                <img src="{{ asset('/Imagenes/Principal/bannersomos.jpg') }}" alt="Quiénes Somos" style="object-fit: none; height: 350px; width: 100%;">
+                <img src="{{asset('/Imagenes/Principal/bannersomos.jpg')}}" alt="Quiénes Somos" style="object-fit: none; height: 350px; width: 100%;">
             </div>
         </div>
     </section>
