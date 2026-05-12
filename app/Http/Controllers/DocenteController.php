@@ -10,8 +10,8 @@ class DocenteController extends Controller
 {
     public function docentes()
     {
-        // Obtener todos los docentes de la base de datos
-        $docentes = Docente::paginate(5);
+        // Obtener los docentes de la base de datos y paginarlos
+        $docentes = Docente::paginate(4);
         return view('Docentes', compact('docentes'));
     }
 }

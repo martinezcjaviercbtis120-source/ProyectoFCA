@@ -10,7 +10,7 @@
             </a>
 
             <!-- Nuestro buscador sacado de la pagina de getbootstrap.com-->
-            <form action="{{ url('/construccion') }}" class="d-flex ms-lg-5 me-lg-5 flex-grow-1"
+            <form action="{{url('/construccion')}}" class="d-flex ms-lg-5 me-lg-5 flex-grow-1"
                 style="max-width: 600px;">
                 <div class="input-group">
                     <input type="search" class="form-control rounded-0" placeholder="¿Qué estás buscando hoy?">
@@ -27,23 +27,19 @@
             <ul class="navbar-nav flex-row gap-4">
                 <li class="nav-item">
                     <a class="nav-link text-dark small border-bottom border-secondary p-0"
-                        href="{{ route('servicios') }}">Servicios en
+                        href="/servicios">Servicios en
                         línea</a>
                 </li>
 
                 <li class="nav-item">
 
                     <a class="nav-link text-dark small border-bottom border-secondary p-0"
-                        href="{{ route('contacto') }}">
-
-                        Contacto
-
-                    </a>
+                        href="/contacto">Contacto</a>
 
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark small border-bottom border-secondary p-0"
-                        href="/construccion">Calendario</a>
+                        href="/calendario">Calendario</a>
                 </li>
             </ul>
         </div>
@@ -98,14 +94,14 @@
                                     aria-labelledby="dropProgramas">
                                     <li><a class="dropdown-item py-2 border-bottom" href="/oferta-educativa">Oferta
                                             Educativa</a></li>
-                                    <li><a class="dropdown-item py-2 border-bottom" href="#">Investigación</a>
+                                    <li><a class="dropdown-item py-2 border-bottom" href="/construccion">Investigación</a>
                                     </li>
-                                    <li><a class="dropdown-item py-2 border-bottom" href="#">Vinculación</a></li>
+                                    <li><a class="dropdown-item py-2 border-bottom" href="/construccion">Vinculación</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-lg-auto col-12 py-2 px-4">
-                            <a class="nav-link text-white fw-bold px-0" href="#">Personal</a>
+                            <a class="nav-link text-white fw-bold px-0" href="/personal">Personal</a>
                         </div>
                     </div>
                 </div>

@@ -1,58 +1,94 @@
-<!-- Las variables que se reciben desde la vista son: $noticias, $titulo, $idCarrusel -->
 @props(['noticias', 'titulo', 'idCarrusel'])
 
-<div class="container-fluid mt-4">
-   <!--Titulo que se trae de nuestra base de datos para el carrusel-->
-    <h2 class="text-center mb-4" style="color: #153e66;">{{ $titulo }}</h2>
+<div class="container-fluid py-5 bg-light">
 
-   <!--Carrusel de bootstrap-->
-    <div id="{{ $idCarrusel }}" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
+    <!-- Titulo Principal -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold" style="color:#153e66;">
+            {{ $titulo }}
+        </h2>
+
+        <!-- Linea decorativa -->
+        <div class="mx-auto mt-2" style="width:120px; height:4px; background:#c69214; border-radius:10px;"></div>
+    </div>
+
+    <!-- Carrusel -->
+    <div id="{{ $idCarrusel }}" class="carousel slide position-relative" data-bs-ride="false">
         <div class="carousel-inner">
-            
-            <!--Nos sirve para agrupar de 4 en 4 nuestros cards-->
-            @foreach($noticias->chunk(4) as $grupo)
-                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                    <div class="row g-4 px-5 justify-content-center">
-                        
-                        @foreach($grupo as $noticia)
-                            <div class="col-md-3">
-                                <div class="card h-100 shadow-sm" style="border: none; border-bottom: 5px solid #c69214;">
-                                    <!--Imagen de la noticia-->
-                                    <img src="{{ asset('Imagenes/Principal/Logo.png') }}" 
-                                         class="card-img-top" style="height: 200px; object-fit: cover;" 
-                                         alt="{{ $noticia->titulo }}">
-                                    <!--Datos de la noticia-->
-                                    <div class="card-body d-flex flex-column text-center">
-                                        <h5 class="card-title fw-bold">{{ $noticia->titulo }}</h5>
-                                        <p class="card-text small text-muted">{{ $noticia->descripcion }}</p>
-                                         <!-- Button trigger modal (Ejemplo de la pagina de getbootstrap.com) un modal x noticia-->
-                                        <button type="button" class="btn w-100 py-3 fw-bold" 
-                                                style="background: #153e66; color: white; border: none;" 
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#modalEvento{{ $noticia->id }}">
-                                            Ver más
-                                        </button>
 
-                                        <!-- Modal. Aqui el id del modal coincide con el el boton de nuestra noiticia --> 
-                                        <div class="modal fade" id="modalEvento{{ $noticia->id }}" tabindex="-1"
-                                             aria-labelledby="labelEvento{{ $noticia->id }}" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <!-- titulo de cada noticia de la bd -->
-                                                        <h5 class="modal-title fw-bold" id="labelEvento{{ $noticia->id }}">
-                                                            {{ $noticia->titulo }}
-                                                        </h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body text-start">
-                                                       <!-- texto de cada noticia de la bd -->
-                                                        <p>{{ $noticia->noticia ?? $noticia->noticia }}</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                    </div>
+            <!-- Agrupamos las cards de 2 en 2 -->
+            @foreach ($noticias->chunk(2) as $grupo)
+                <div class="carousel-item {{$loop->first ? 'active' : '' }}">
+                    <div class="row justify-content-center g-4 px-lg-5">
+                        @foreach ($grupo as $noticia)
+                            <div class="col-lg-6">
+
+                                <!-- Card diseño -->
+                                <div class="card h-100 border-0 shadow-sm noticia-card overflow-hidden bg-white">
+                                    <div class="row g-0 h-100">
+
+                                        <!-- Imagen -->
+                                        <div class="col-md-5 d-flex align-items-center justify-content-center bg-white">
+                                            <img src="{{ asset('Imagenes/Noticias/' . $noticia->imagen) }}" class="img-fluid w-100 p-3" style="object-fit: contain; height: 380px; max-height: 220px;" alt="{{ $noticia->titulo }}">
+                                        </div>
+
+                                        <!-- Formato de la card -->
+                                        <div class="col-md-7 bg-white">
+                                            <div class="card-body d-flex flex-column justify-content-center h-100 p-3 text-center">
+
+                                                <!-- Titilo del card -->
+                                                <h4 class="card-title fw-bold mb-3"
+                                                    style="color:#153e66; font-size:1.3rem;">
+                                                    {{ $noticia->titulo }}
+                                                </h4>
+
+                                                <!-- Linea decorativa -->
+                                                <div class="mx-auto mb-3" style="width:70px; height:4px; background:#c69214; border-radius:10px;"></div>
+
+                                                <!-- Descripcion -->
+                                                <p class="card-text text-muted flex-grow-1 lh-lg">
+                                                    {{ Str::limit($noticia->descripcion, 140) }}
+                                                </p>
+
+                                                <!-- Boton -->
+                                                <div class="mt-3">
+                                                    <button type="button" class="btn px-4 py-2 fw-bold"
+                                                        style="background:#153e66; color:white; border-radius:10px;" data-bs-toggle="modal" data-bs-target="#modalNoticia{{ $noticia->id }}">
+                                                        Ver noticia completa
+                                                    </button>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modalNoticia{{$noticia->id}}" tabindex="-1"
+                                    aria-labelledby="labelNoticia{{$noticia->id}}" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                                        <div class="modal-content border-0">
+
+                                            <!-- Header del modal -->
+                                            <div class="modal-header" style="background:#153e66; color:white;">
+                                                <h5 class="modal-title fw-bold" id="labelNoticia{{$noticia->id}}">
+                                                    {{$noticia->titulo}}
+                                                </h5>
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                            </div>
+
+                                            <!-- Body del modal -->
+                                            <div class="modal-body p-4 text-center">
+                                                <img src="{{ asset('Imagenes/Noticias/' . $noticia->imagen)}}" class="img-fluid rounded shadow mb-4" style="max-height:280px; width:auto; object-fit:contain;" alt="{{ $noticia->titulo }}">
+                                                <p class="text-center lh-lg fs-6 text-secondary">
+                                                    {{ $noticia->noticia }}
+                                                </p>
+                                            </div>
+
+                                            <!-- Footer del modal y boton cerrar-->
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Cerrar
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -62,15 +98,34 @@
                     </div>
                 </div>
             @endforeach
-
         </div>
 
-        <!--Controles del carrusel para las cards-->
-        <button class="carousel-control-prev" type="button" data-bs-target="#{{ $idCarrusel }}" data-bs-slide="prev" style="width: 5%; filter: invert(1);">
-            <span class="carousel-control-prev-icon"></span>
+        <!-- Boton Anterior -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#{{ $idCarrusel }}" data-bs-slide="prev" style="width:5%; left:-25px;">
+            <span class="carousel-control-prev-icon bg-dark rounded-circle p-4 shadow"></span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#{{ $idCarrusel }}" data-bs-slide="next" style="width: 5%; filter: invert(1);">
-            <span class="carousel-control-next-icon"></span>
+
+        <!-- Boton Siguiente -->
+        <button class="carousel-control-next" type="button" data-bs-target="#{{ $idCarrusel }}" data-bs-slide="next" style="width:5%; right:-25px;">
+            <span class="carousel-control-next-icon bg-dark rounded-circle p-4 shadow"></span>
         </button>
     </div>
 </div>
+
+<!-- Estilos cards -->
+<style>
+    .noticia-card {
+        transition: all .3s ease;
+        border-radius: 18px;
+        border-bottom: 5px solid #c69214;
+    }
+
+    .noticia-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>

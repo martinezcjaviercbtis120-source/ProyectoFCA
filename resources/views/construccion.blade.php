@@ -18,11 +18,11 @@
        Por favor, regresa a la página principal de la Facultad.
     </p>
     <!-- Botón para regresar al inicio -->
-    <a href="{{ url('/') }}" class="btn btn-lg text-white" style="background: #0b3a63; border-radius: 0;">
+    <a href="{{url('/')}}" class="btn btn-lg text-white" style="background: #0b3a63; border-radius: 0;">
         Regresar al Inicio
     </a>
 </div>
 
-<!-- Espaciador para que el footer no se pegue --> 
+<!-- Espaciador para que nuestro footer no se pegue --> 
 <div style="height:auto;"></div>
 @endsection

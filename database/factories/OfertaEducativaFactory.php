@@ -19,6 +19,7 @@ class OfertaEducativaFactory extends Factory
     protected $model = OfertaEducativa::class;
     public function definition(): array
     {
+        //Definimos los datos que se van a llenar de forma masiva en nuestra bd, usando el faker para generar datos aleatorios.
         return [
             'licenciatura' => $this->faker->word(),
             'descripcion' => $this->faker->sentence(),

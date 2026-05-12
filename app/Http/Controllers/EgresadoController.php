@@ -9,7 +9,7 @@ class EgresadoController extends Controller
 {
     public function egresados()
 {
-    // Obtener todos los egresados de la base de datos
+    // Obtener los egresados de la base de datos y paginarlos
     $egresados = Egresado::paginate(10);
     return view('Egresados', compact('egresados'));
 }
