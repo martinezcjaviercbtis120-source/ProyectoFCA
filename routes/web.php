@@ -1,28 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// Nuestros controladores importados para las rutas
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\NoticiasController;
-use App\Http\Controllers\ComunidadController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\EgresadoController;
 use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\OfertaController;
+use App\Http\Controllers\BuscadorController;
+use App\Http\Controllers\InvestigacionController;
+use App\Http\Controllers\VinculacionController;
+use App\Http\Controllers\EstudiantesController;
+// Nuestros modelos importados para las rutas
 use App\Models\Noticia;
 use App\Models\Evento;
-use App\Models\Alumno;
-use App\Models\Docente;
-use App\Models\Egresado;
 use App\Models\Calendario;
 use App\Models\Oferta;
 use Symfony\Contracts\EventDispatcher\Event;
 
-// Pagina principal de la FCA con las noticias
+// Pagina principal de la FCA con las noticias y nuestros eventos
 Route::get('/', [PrincipalController::class, 'inicio']);
 Route::get('/', [NoticiasController::class, 'index']);
-
-// Pagina que me va a redirigir a la comunidad de la FCA
-Route::get('/comunidad', [ComunidadController::class, 'Comunidad']);
 
 // Pagina que me va a redirigir a la pestaña de docentes
 Route::get('/docentes', [DocenteController::class, 'Docentes']);
@@ -33,7 +32,14 @@ Route::get('/egresados', [EgresadoController::class, 'Egresados']);
  // Pagina que me va a redirigir a la pestaña de oferta educativa
 Route::get('/oferta-educativa', [OfertaController::class, 'oferta']);
 
+// Pagina que me va a redirigir a la pestaña de calendario
 Route::get('/calendario', [CalendarioController::class, 'calendario']);
+
+// Pagina que me va a redirigir a la investigacion
+Route::get('/investigacion', [InvestigacionController::class, 'Investigacion']);
+ 
+// Pagina que me va a redirigir a vinculacion
+Route::get('/vinculacion', [VinculacionController::class, 'Vinculacion']);
 
 // Pagina que me va a redirigir a la pestaña de servicios
 Route::view('/servicios', 'servicios')->name('servicios');
@@ -41,18 +47,18 @@ Route::view('/servicios', 'servicios')->name('servicios');
 // Pagina que me va a redirigir a la pestaña de contacto
 Route::view('/contacto', 'contacto')->name('contacto');
 
-Route::get('/calendario', [CalendarioController::class, 'calendario']);
+//Nuestro buscador del header que nos va a redirigir a la pagina de busqueda
+Route::get('/buscar', [BuscadorController::class, 'index'])->name('buscar');
 
 // Pagina que me va a redirigir a la pestaña de estudiantes
-Route::get('/estudiantes', function () {
-    return view('estudiantes');
-});
+Route::get('/estudiantes', [EstudiantesController::class, 'estudiantes']);
 
 //Pagina que nos va a redirigir a la pestaña de construccion
 Route::get('/construccion', function () {
     return view('construccion');
 });
 
+//Pagina que me va a redirigir a la pestaña de personal
 Route::get('/personal', function () {
     return view('personal');
 });

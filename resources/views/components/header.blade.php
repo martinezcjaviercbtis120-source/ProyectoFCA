@@ -9,11 +9,10 @@
                 </span>
             </a>
 
-            <!-- Nuestro buscador sacado de la pagina de getbootstrap.com-->
-            <form action="{{url('/construccion')}}" class="d-flex ms-lg-5 me-lg-5 flex-grow-1"
-                style="max-width: 600px;">
+            <!-- Nuestro buscador, usamos GET para la búsqueda y query para pasar el término de búsqueda -->
+            <form action="{{route('buscar')}}" method="GET" class="d-flex ms-lg-5 me-lg-5 flex-grow-1" style="max-width: 600px;">
                 <div class="input-group">
-                    <input type="search" class="form-control rounded-0" placeholder="¿Qué estás buscando hoy?">
+                    <input type="search" name="query" class="form-control rounded-0" placeholder="¿Qué estás buscando hoy?" value="{{ request('query') }}" required>
 
                     <!--Estilo del botón de búsqueda azul-->
                     <button class="btn rounded-0 px-3" type="submit" id="button-search"
@@ -26,17 +25,13 @@
             <!-- Navs de la derecha-->
             <ul class="navbar-nav flex-row gap-4">
                 <li class="nav-item">
-                    <a class="nav-link text-dark small border-bottom border-secondary p-0"
-                        href="/servicios">Servicios en
-                        línea</a>
+                    <a class="nav-link text-dark small border-bottom border-secondary p-0" href="/servicios">Servicios en línea</a>
                 </li>
 
                 <li class="nav-item">
-
-                    <a class="nav-link text-dark small border-bottom border-secondary p-0"
-                        href="/contacto">Contacto</a>
-
+                    <a class="nav-link text-dark small border-bottom border-secondary p-0" href="/contacto">Contacto</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link text-dark small border-bottom border-secondary p-0"
                         href="/calendario">Calendario</a>
@@ -45,67 +40,59 @@
         </div>
     </nav>
 
-    <!-- Segunda barra de navegación con los enlaces a las secciones principales Comunidad, programas y desarrollo, personal -->
-    <nav class="navbar navbar-expand-lg p-0" style="background-color: #0b3a63;">
-        <!-- navbar-expand-lg para que el menú hamburguesa solo aparezca en móvil -->
-        <div class="container-fluid p-0">
+    <!-- Nav Bar De Menu Desplegables-->
+    <nav class="navbar navbar-expand-lg navbar-dark p-0" style="background:#0b3a63;">
+        <div class="container-fluid p-0 flex-wrap">
 
-            <!-- Texto de menu a la hora de que aparezca el menu hamburguesa -->
-            <span class="navbar-brand d-lg-none mx-auto fw-bold text-white"
-                style="font-size: 1.1rem; letter-spacing: 1px;">
-                Menú Principal
-            </span>
+            <!-- Menu y Botón alineados para cel-->
+            <div class="d-flex w-100 justify-content-between align-items-center d-lg-none px-4 py-2"
+                style="background:#0b3a63;">
+                <span class="text-white fw-bold m-0 fs-5">Menú Principal</span>
 
-            <!-- El Botón Hamburguesa -->
-            <button class="navbar-toggler ms-auto m-2 bg-light" type="button" data-bs-toggle="collapse"
-                data-bs-target="#hambur" aria-controls="navFCA" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler border-white border-opacity-20" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarUadyPrincipal">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
-            <!-- Contenedores Colapsables -->
-            <div class="collapse navbar-collapse justify-content-center" id="hambur">
-                <div class="row g-0 text-center align-items-center shadow-sm" style="border-radius: 4px;">
-
-                    <!-- Apartados col-lg-3 para escritorio, col-12 para móvil -->
-                    <div class="col-lg-auto col-12 py-2 px-4" style="background:#c69214;">
+            <!-- Nav Bar collapse para que Bootstrap maneje el mostrar/ocultar de forma automática-->
+            <div class="collapse navbar-collapse justify-content-center w-100" id="navbarUadyPrincipal">
+                <div class="d-flex flex-column flex-lg-row text-center text-lg-start w-100 justify-content-center py-2 py-lg-0">
+                    <div class="py-2 px-4 menu-item-border">
                         <div class="dropdown">
-                            <a class="nav-link dropdown-toggle text-dark fw-bold px-0" href="#" id="dropComunidad"
-                                role="button" data-bs-toggle="dropdown">
-                                Comunidad
-                            </a>
-                            <ul class="dropdown-menu shadow border-0 py-0 overflow-hidden"
-                                aria-labelledby="dropComunidad">
+                            <a class="nav-link dropdown-toggle text-white fw-bold px-0" href="#" id="dropComunidad" role="button" data-bs-toggle="dropdown">Comunidad</a>
+                            <ul class="dropdown-menu shadow border-0 py-0 overflow-hidden" aria-labelledby="dropComunidad">
                                 <li><a class="dropdown-item py-2 border-bottom" href="/estudiantes">Estudiantes</a></li>
                                 <li><a class="dropdown-item py-2 border-bottom" href="/docentes">Docentes</a></li>
                                 <li><a class="dropdown-item py-2" href="/egresados">Egresados</a></li>
                             </ul>
                         </div>
                     </div>
-
-                    <!-- Contenedor Azul: col-lg-9 para escritorio, col-12 para móvil -->
-                    <div class="col-lg-auto col-12 d-flex flex-wrap p-0" style="background:#0b3a63;">
-                        <div class="col-lg-auto col-12 py-2 px-4 border-end border-white border-opacity-10">
-                            <div class="dropdown">
-                                <a class="nav-link dropdown-toggle text-white fw-bold px-0" href="#"
-                                    id="dropProgramas" role="button" data-bs-toggle="dropdown">
-                                    Programas y Desarrollo
-                                </a>
-                                <ul class="dropdown-menu shadow border-0 py-0 overflow-hidden"
-                                    aria-labelledby="dropProgramas">
-                                    <li><a class="dropdown-item py-2 border-bottom" href="/oferta-educativa">Oferta
-                                            Educativa</a></li>
-                                    <li><a class="dropdown-item py-2 border-bottom" href="/construccion">Investigación</a>
-                                    </li>
-                                    <li><a class="dropdown-item py-2 border-bottom" href="/construccion">Vinculación</a></li>
-                                </ul>
-                            </div>
+                    <!-- Nav Bar collapse de programas y desarrollo -->
+                    <div class="py-2 px-4 menu-item-border">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle text-white fw-bold px-0" href="#" id="dropProgramas" role="button" data-bs-toggle="dropdown">Programas y Desarrollo</a>
+                            <ul class="dropdown-menu shadow border-0 py-0 overflow-hidden" aria-labelledby="dropProgramas">
+                                <li><a class="dropdown-item py-2 border-bottom" href="/oferta-educativa">Oferta Educativa</a></li>
+                                <li><a class="dropdown-item py-2 border-bottom" href="/investigacion">Investigación</a></li>
+                                <li><a class="dropdown-item py-2 border-bottom" href="/vinculacion">Vinculación</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="col-lg-auto col-12 py-2 px-4">
-                            <a class="nav-link text-white fw-bold px-0" href="/personal">Personal</a>
+                    </div>
+                    <!-- Nav Bar collapse de personal -->
+                    <div class="py-2 px-4">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle text-white fw-bold px-0" href="#" id="dropPersonal" role="button" data-bs-toggle="dropdown">Personal</a>
+                            <ul class="dropdown-menu shadow border-0 py-0 overflow-hidden" aria-labelledby="dropPersonal">
+                                <li><a class="dropdown-item py-2" href="/personal">Trabajadores</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+    <!-- barra decorativa de color oro -->
+  <div class="w-100" style="background-color: #c69214; height: 5px;"></div>
 </div>
