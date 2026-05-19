@@ -2,7 +2,7 @@
 <footer class="text-white py-5 mt-auto" style="background: #0b3a63;">
     <div class="container">
         <div class="row gy-4 align-items-center">
-
+            <!-- Enlaces de mi footer en forma de lista -->
             <div class="col-lg-3 col-md-6">
                 <ul class="list-unstyled small lh-base mb-0">
                     <li><a href="/construccion" class="text-white text-decoration-none">Atención Usuarios (TI)</a></li>

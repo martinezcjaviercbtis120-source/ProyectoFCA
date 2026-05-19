@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
+//Seeders para generar datos aleartorios en nuestra base de datos usando factorys correspondientes a cada modelo.
     //OfertaEducativa::factory(4)->create();
     //\App\Models\Alumno::factory(30)->create();    
     //\App\Models\Docente::factory(20)->create();    

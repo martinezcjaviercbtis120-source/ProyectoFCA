@@ -12,8 +12,7 @@
         <!-- Imagen -->
         <div class="col-lg-12 col-md-12 col-12 mb-4 d-flex">
             <div class="card flex-grow-1 shadow-sm border-0 bg-white">
-                <img src="{{ asset('/Imagenes/Principal/egresados.jpg') }}" class="card-img-top img-fluid w-100" alt="CordEgre"
-                    style="object-fit: cover; height: 350px; border-radius: 0;">
+                <img src="{{asset('/Imagenes/Principal/egresados.jpg')}}" class="card-img-top img-fluid w-100" alt="CordEgre" style="object-fit: cover; height: 350px; border-radius: 0;">
             </div>
         </div>
 
@@ -64,8 +63,9 @@
             @endif
         </div>
     </div>
+    <!-- paginacion de los egresados -->
     <div class="d-flex justify-content-center mt-4">
-        {{ $egresados->links() }}
+        {{$egresados->links()}}
     </div>
     </div>
 @endsection

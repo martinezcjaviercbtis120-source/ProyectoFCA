@@ -8,11 +8,11 @@
             <h1 class="fw-bold"style="color:#003B70; font-family:'Poppins', sans-serif;">
                 Contacto FCA - UADY
             </h1>
-
+            <!-- Subtitulo -->
             <p class="text-secondary fs-5">
                 Facultad de Contaduría y Administración
             </p>
-
+            <!-- Linea decorativa -->
             <div class="mx-auto" style="width:100px; height:5px; background:#C69214; border-radius:20px;"></div>
         </div>
 

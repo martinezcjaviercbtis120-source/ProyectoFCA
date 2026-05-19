@@ -1,19 +1,17 @@
 <?php
-
+ 
 namespace App\Models;
-
+ 
 use Illuminate\Database\Eloquent\Model;
-
-class Calendario extends Model
+ 
+class Investigacion extends Model
 {
-    
-    //Nuetra tabla de la base de datos
-    protected $table = 'calendario';
-
+    protected $table = 'investigacion';
+ 
     //Datos que tenemos dentro de nuestra base de datos donde se asignara la informacion masiva de manera segura 
-    //sin modificar los otros campos
+    //sin modificar los otros campos    
     protected $fillable = [
-        'evento',
+        'coordinacion',
+        'descripcion'
     ];
-    //
 }

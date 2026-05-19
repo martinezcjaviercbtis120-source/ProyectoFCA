@@ -12,7 +12,8 @@ class Evento extends Model
     //Nuetra tabla de la base de datos
     protected $table = 'eventos';
 
-    //Datos que tenemos dentro de nuestra base de datos que se pueden llenar de forma masiva
+    //Datos que tenemos dentro de nuestra base de datos donde se asignara la informacion masiva de manera segura 
+    //sin modificar los otros campos
     protected $fillable = [
         'titulo',         
         'descripcion', 
